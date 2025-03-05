@@ -114,7 +114,7 @@ class QhantuyDevice(models.Model):
         return {
             "appkey": self.app_key,
             #"appkey": "Vm0xMGFrMVhVWGxVYmtwT1ZtdHdVbFpyVWtKUFVUMDk=-QKTWF",
-            #"callback_url": "",
+            "callback_url": "",
             "currency_code":"BOB",
             "internal_code": "ABC123",
             "detail":"S-Mart Micromercados",

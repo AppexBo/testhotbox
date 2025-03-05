@@ -137,7 +137,6 @@ patch(PaymentScreen.prototype, {
                 //envio un ajax a {{enviroment_url}}/check-payments para ver el estado de mi pago para ello envio el codigo del pago
                 const result_state = await this.get_state_qr_qhantuy();
                 //respuesta del ajax pregunto su estado de un parametro
-                /*
                 if(result_state.result.error){
                     //caso que no sea exitoso
                     // quitar el cargando
@@ -149,14 +148,13 @@ patch(PaymentScreen.prototype, {
                     //mostrar un modal que indique que trate nuevamente
                     this.generate_error_modal("Error", "Problema de connexion pruebe mas tarde o comuniquese con un administrador.");
                 }else{
-                */
-                    //if(result_state.result.items[0]["payment_status "] == "success"){
+                    if(result_state.result.items[0]["payment_status "] == "success"){
                         //es estado exitoso
                         //enviar directo a la siguiente vista
                         this.validateOrder(true);
                         // quitar el cargando
                         this.remove_generate_load_view();
-                    /*}
+                    }
                     else{
                         //caso que no sea exitoso
                         // quitar el cargando
@@ -170,8 +168,8 @@ patch(PaymentScreen.prototype, {
                             "Error",
                             "Lamentamos informarte que el pago no fue confirmado. Te invitamos a que intentes nuevamente. Si el problema persiste, no dudes en ponerte en contacto con nuestro equipo de soporte."
                         )
-                    }*/
-                //}
+                    }
+                }
             }else{
                 //elimina el metodo de pago en el listado porque lo cancela
                 const order = this.pos.get_order()
