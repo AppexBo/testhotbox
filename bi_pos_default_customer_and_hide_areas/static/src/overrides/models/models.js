@@ -103,7 +103,7 @@ patch(Order.prototype, {
             if(campo_monto){
                 campo_monto.setAttribute('style', 'display: none !important;');
             }
-            this.center_button_next_order(buttonValidate);
+            //this.center_button_next_order(buttonValidate);
         }else{
             //para tablets pequenas
             const buttonValidate1 = document.querySelector('.btn-switchpane.validation-button');
@@ -120,7 +120,7 @@ patch(Order.prototype, {
                 if(campo_monto){
                     campo_monto.setAttribute('style', 'display: none !important;');
                 }
-                this.center_button_next_order(buttonValidate1);
+                //this.center_button_next_order(buttonValidate1);
             }
         }
     },
