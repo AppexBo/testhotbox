@@ -20,6 +20,8 @@ patch(Order.prototype, {
         //Cambios en el POS
         this.changePos(this.pos);
     },
+
+    
     
     changePos(pos){
         // Crear un MutationObserver para observar cambios en el DOM
@@ -29,19 +31,10 @@ patch(Order.prototype, {
             //La vista dos es cuando se da al boton pagar del POS donde muestra los metodos de pago
             this.camposDeLaVistaDos();
 
-            //simulo que presione el boton de validar esto es solo para hotbox para tablets grandes o medianas
-            const buttonValidate = document.querySelector('.button.next.validation');
-            if (buttonValidate && buttonValidate.textContent.trim() === "Nueva orden") {
-                buttonValidate.click(); // Simula un clic en el botón
-            }else{
-                //para tablets pequenas
-                const buttonValidate1 = document.querySelector('.btn-switchpane.validation-button');
-                if(buttonValidate1 && buttonValidate1.textContent.trim() === "Nueva orden"){
-                    buttonValidate1.click(); // Simula un clic en el botón
-                }
-            }
+            //La vista tres es cuando aparece el boton para siguiente orden
+            this.camposDeLaVistaTres();
         });
-        
+
         // Observar cambios en el DOM dentro del contenedor principal
         observer.observe(document.body, {
             childList: true,
@@ -49,6 +42,93 @@ patch(Order.prototype, {
         });
     },
 
+
+    
+
+        
+
+
+
+
+    insert_generate_load_view(){
+        // Crear un div para el spinner
+        var spinner = document.createElement('div');
+        spinner.id = 'loader_qhuantuy';
+        spinner.style.position = 'fixed';
+        spinner.style.top = '0';
+        spinner.style.left = '0';
+        spinner.style.width = '100%';
+        spinner.style.height = '100%';
+        spinner.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+        spinner.style.zIndex = '9999';
+        spinner.style.display = 'flex';
+        spinner.style.justifyContent = 'center';
+        spinner.style.alignItems = 'center';
+
+        // Añadir texto o un spinner de carga
+        spinner.innerHTML = '<div class="loader" style="border: 16px solid #f3f3f3; border-top: 16px solid #3498db; border-radius: 50%; width: 60px; height: 60px; animation: spin 2s linear infinite;"></div>';
+
+        // Estilos de la animación
+        var style = document.createElement('style');
+        style.innerHTML = `
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+        `;
+        document.head.appendChild(style);
+        // Añadir el spinner al cuerpo
+        document.body.appendChild(spinner);
+    },
+
+    remove_generate_load_view(){
+        //buscar el loader
+        var spinner = document.getElementById('loader_qhuantuy');
+        // Eliminar el spinner
+        document.body.removeChild(spinner);
+    },
+
+    camposDeLaVistaTres(){
+        const buttonValidate = document.querySelector('.button.next.validation');
+        if (buttonValidate && buttonValidate.textContent.trim() === "Nueva orden") {
+            const campo_receipt = document.querySelector('.pos-receipt-container');
+            if(campo_receipt){
+                campo_receipt.setAttribute('style', 'display: none !important;');
+            }
+            const campo_pago_exitoso = document.querySelector('.d-flex.flex-column.m-4');
+            if(campo_pago_exitoso){
+                campo_pago_exitoso.setAttribute('style', 'display: none !important;');
+            }
+            const campo_monto = document.querySelector('.top-content.d-flex');
+            if(campo_monto){
+                campo_monto.setAttribute('style', 'display: none !important;');
+            }
+            this.center_button_next_order(buttonValidate);
+        }else{
+            //para tablets pequenas
+            const buttonValidate1 = document.querySelector('.btn-switchpane.validation-button');
+            if(buttonValidate1 && buttonValidate1.textContent.trim() === "Nueva orden"){
+                const campo_receipt = document.querySelector('.pos-receipt-container');
+                if(campo_receipt){
+                    campo_receipt.setAttribute('style', 'display: none !important;');
+                }
+                const campo_pago_exitoso = document.querySelector('.d-flex.flex-column.m-4');
+                if(campo_pago_exitoso){
+                    campo_pago_exitoso.setAttribute('style', 'display: none !important;');
+                }
+                const campo_monto = document.querySelector('.top-content.d-flex');
+                if(campo_monto){
+                    campo_monto.setAttribute('style', 'display: none !important;');
+                }
+                this.center_button_next_order(buttonValidate1);
+            }
+        }
+    },
+
+    center_button_next_order(button_next_order){
+        button_next_order.setAttribute('style', 'position: fixed !important; top: 30% !important; left: 0 !important; width: 100% !important; height: 25% !important; display: flex !important; justify-content: center !important; align-items: center !important; z-index: 1000 !important;');
+    },
+    
     camposDeLaVistaUno(pos){
         // Buscar y cambiar el campo donde esta el logo de odoo
         //PASA ALGO ACA HAY Q LEER BIEN EL CODIGO
@@ -105,7 +185,7 @@ patch(Order.prototype, {
 
         }else{
             const switchpane = document.querySelector('.switchpane.d-flex.h-12');
-            if(switchpane && !switchpane.hasAttribute('style')){
+            if(switchpane && !switchpane.hasAttribute('style') && switchpane.textContent.trim() != "Nueva orden"){
                 switchpane.setAttribute('style', 'display: none !important;');
             }
         }
