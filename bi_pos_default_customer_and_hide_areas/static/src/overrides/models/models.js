@@ -89,8 +89,11 @@ patch(Order.prototype, {
     },
 
     camposDeLaVistaTres(){
+        const h1Elements = document.querySelectorAll('h1'); // Selecciona todos los <h1>
+        const count = [...h1Elements].filter(h1 => h1.textContent.trim() === 'Pago exitoso').length;
+
         const buttonValidate = document.querySelector('.button.next.validation');
-        if (buttonValidate && buttonValidate.textContent.trim() === "Nueva orden") {
+        if (buttonValidate && count === 1) {
             const campo_receipt = document.querySelector('.pos-receipt-container');
             if(campo_receipt){
                 campo_receipt.setAttribute('style', 'display: none !important;');
@@ -103,11 +106,12 @@ patch(Order.prototype, {
             if(campo_monto){
                 campo_monto.setAttribute('style', 'display: none !important;');
             }
-            //this.center_button_next_order(buttonValidate);
+
+            this.center_button_next_order(buttonValidate);
         }else{
             //para tablets pequenas
             const buttonValidate1 = document.querySelector('.btn-switchpane.validation-button');
-            if(buttonValidate1 && buttonValidate1.textContent.trim() === "Nueva orden"){
+            if(buttonValidate1 && count === 1){
                 const campo_receipt = document.querySelector('.pos-receipt-container');
                 if(campo_receipt){
                     campo_receipt.setAttribute('style', 'display: none !important;');
@@ -120,13 +124,14 @@ patch(Order.prototype, {
                 if(campo_monto){
                     campo_monto.setAttribute('style', 'display: none !important;');
                 }
-                //this.center_button_next_order(buttonValidate1);
+                this.center_button_next_order(buttonValidate1);
             }
         }
     },
 
     center_button_next_order(button_next_order){
-        button_next_order.setAttribute('style', 'position: fixed !important; top: 30% !important; left: 0 !important; width: 100% !important; height: 25% !important; display: flex !important; justify-content: center !important; align-items: center !important; z-index: 1000 !important;');
+        button_next_order.setAttribute('style', 'position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; display: flex !important; justify-content: center !important; align-items: center !important; z-index: 99999 !important;');
+        button_next_order.textContent = 'Presione para iniciar la compra'; 
     },
     
     camposDeLaVistaUno(pos){
