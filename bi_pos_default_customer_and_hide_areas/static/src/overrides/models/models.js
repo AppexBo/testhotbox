@@ -133,15 +133,14 @@ patch(Order.prototype, {
 
     async simulationClickInTHIS(button_simulation){ 
         const spans = document.querySelectorAll("span");
-        spans.forEach(span => {
-            if (span.textContent.trim() === "POR FAVOR, ESCANEE SUS PRODUCTOS") {
-                span.textContent = "Gracias por su compra"; 
-                setTimeout(() => {
-                    span.textContent = "POR FAVOR, ESCANEE SUS PRODUCTOS"; 
-                    button_simulation.click();
-                },2000);
-            }
-        });
+        const spanEncontrado = spans.find(span => span.textContent.trim() === "POR FAVOR, ESCANEE SUS PRODUCTOS");
+        if(spanEncontrado){
+            spanEncontrado.textContent = "Gracias por su compra";
+            setTimeout(() => {
+                button_simulation.click();
+                span.textContent = "POR FAVOR, ESCANEE SUS PRODUCTOS"; 
+            },2000);
+        }
     },
     
     camposDeLaVistaUno(pos){
