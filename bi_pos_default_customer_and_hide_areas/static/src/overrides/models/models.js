@@ -33,8 +33,6 @@ patch(Order.prototype, {
 
             //La vista tres es cuando aparece el boton para siguiente orden
             this.camposDeLaVistaTres();
-            this.insert_generate_load_view();
-            
         });
 
         // Observar cambios en el DOM dentro del contenedor principal
@@ -42,52 +40,6 @@ patch(Order.prototype, {
             childList: true,
             subtree: true
         });
-    },
-
-
-    
-
-        
-
-
-
-
-    insert_generate_load_view(){
-        // Crear un div para el spinner
-        var spinner = document.createElement('div');
-        spinner.id = 'loader_other';
-        spinner.style.position = 'fixed';
-        spinner.style.top = '0';
-        spinner.style.left = '0';
-        spinner.style.width = '100%';
-        spinner.style.height = '100%';
-        spinner.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-        spinner.style.zIndex = '9999';
-        spinner.style.display = 'flex';
-        spinner.style.justifyContent = 'center';
-        spinner.style.alignItems = 'center';
-
-        // Añadir texto o un spinner de carga
-        spinner.innerHTML = '<div class="loader" style="border: 16px solid #f3f3f3; border-top: 16px solid #3498db; border-radius: 50%; width: 60px; height: 60px; animation: spin 2s linear infinite;"></div>';
-
-        // Estilos de la animación
-        var style = document.createElement('style');
-        style.innerHTML = `
-        @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-        }
-        `;
-        document.head.appendChild(style);
-        // Añadir el spinner al cuerpo
-        document.body.appendChild(spinner);
-    },
-
-    remove_generate_load_view(){
-        //buscar el loader
-        var spinner = document.getElementById('loader_qhuantuy');
-        // Eliminar el spinner
-        document.body.removeChild(spinner);
     },
 
     async camposDeLaVistaTres(){
@@ -133,14 +85,16 @@ patch(Order.prototype, {
         }
     },
 
-    simulationClickInTHIS(button_simulation){ 
-        /*this.insert_generate_load_view(); 
-        
-        setTimeout(() => {    
+    async simulationClickInTHIS(button_simulation){ 
+        const spans = [...document.querySelectorAll("span")];
+        const spanEncontrado = spans.find(span => span.textContent.trim() === "POR FAVOR, ESCANEE SUS PRODUCTOS");
+
+        if(spanEncontrado){
+            spanEncontrado.textContent = "Gracias por su compra";
+            await sleep(2000);
+            spanEncontrado.textContent = "POR FAVOR, ESCANEE SUS PRODUCTOS";
             button_simulation.click();
-            this.remove_generate_load_view();
-        },5000);*/
-        
+        }
     },
     
     camposDeLaVistaUno(pos){
