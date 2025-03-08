@@ -107,7 +107,7 @@ patch(Order.prototype, {
                 campo_monto.setAttribute('style', 'display: none !important;');
             }
 
-            this.center_button_next_order(buttonValidate);
+            this.appendChilddddddd(buttonValidate);
         }else{
             //para tablets pequenas
             const buttonValidate1 = document.querySelector('.btn-switchpane.validation-button');
