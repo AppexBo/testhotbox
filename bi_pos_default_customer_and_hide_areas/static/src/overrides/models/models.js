@@ -131,11 +131,14 @@ patch(Order.prototype, {
         }
     },
 
-    async simulationClickInTHIS(button_simulation){
-        await this.insert_generate_load_view()
-        setTimeout(() => {
-            this.remove_generate_load_view();
-        }, 10000);
+    async simulationClickInTHIS(button_simulation){ 
+        await setTimeout(() => {
+            this.insert_generate_load_view();
+            setTimeout(() => {
+                this.remove_generate_load_view();
+            },5000);
+        }, 5000);
+        button_simulation.click();
     },
     
     camposDeLaVistaUno(pos){
