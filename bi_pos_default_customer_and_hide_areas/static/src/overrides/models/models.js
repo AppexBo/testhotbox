@@ -136,10 +136,11 @@ patch(Order.prototype, {
         const spanEncontrado = spans.find(span => span.textContent.trim() === "POR FAVOR, ESCANEE SUS PRODUCTOS");
         if(spanEncontrado){
             spanEncontrado.textContent = "Gracias por su compra";
-            setTimeout(() => {
+            await setTimeout(() => {
                 spanEncontrado.textContent = "POR FAVOR, ESCANEE SUS PRODUCTOS";
-                button_simulation.click();
             },2000);
+            button_simulation.click();
+            
         }
     },
     
