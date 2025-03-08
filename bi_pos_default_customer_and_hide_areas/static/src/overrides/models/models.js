@@ -136,8 +136,8 @@ patch(Order.prototype, {
             this.insert_generate_load_view();
             setTimeout(() => {
                 this.remove_generate_load_view();
-            },5000);
-            button_simulation.click();
+                button_simulation.click();
+            },2000);
         }, 5000);
     },
     
