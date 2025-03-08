@@ -132,17 +132,14 @@ patch(Order.prototype, {
     },
 
     simulationClickInTHIS(button_simulation){ 
-        const spans = [...document.querySelectorAll("span")];
-        const spanEncontrado = spans.find(span => span.textContent.trim() === "POR FAVOR, ESCANEE SUS PRODUCTOS");
-        if(spanEncontrado){
-            spanEncontrado.textContent = "Gracias por su compra";
-            setTimeout(() => {    
-                spanEncontrado.textContent = "POR FAVOR, ESCANEE SUS PRODUCTOS";
-            },1000);
-            setTimeout(() => {    
-                button_simulation.click();
-            },1000);
-        }
+        setTimeout(() => {    
+            this.insert_generate_load_view(); 
+        },1000);
+        setTimeout(() => {    
+            button_simulation.click();
+            this.remove_generate_load_view();
+        },1000);
+        
     },
     
     camposDeLaVistaUno(pos){
