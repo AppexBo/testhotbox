@@ -91,9 +91,10 @@ patch(Order.prototype, {
 
         if(spanEncontrado){
             spanEncontrado.textContent = "Gracias por su compra";
-            await sleep(2000);
-            spanEncontrado.textContent = "POR FAVOR, ESCANEE SUS PRODUCTOS";
-            button_simulation.click();
+            setTimeout(() => {    
+                spanEncontrado.textContent = "POR FAVOR, ESCANEE SUS PRODUCTOS";
+                button_simulation.click();
+            },2000);
         }
     },
     
