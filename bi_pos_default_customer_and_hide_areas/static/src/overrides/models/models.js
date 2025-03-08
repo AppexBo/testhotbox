@@ -130,9 +130,7 @@ patch(Order.prototype, {
     },
 
     center_button_next_order(button_next_order){
-        if (button_next_order) {
-            button_next_order.style.height = "70vh";
-        }
+        
         button_next_order.textContent = 'Presione para iniciar la compra'; 
     },
     
