@@ -133,6 +133,16 @@ patch(Order.prototype, {
         
         button_next_order.textContent = 'Presione para iniciar la compra'; 
     },
+    appendChilddddddd(sssss){
+        const botonRojo = document.createElement('button');
+        botonRojo.textContent = 'Hola';
+        botonRojo.style.backgroundColor = 'red';
+        botonRojo.style.color = 'white';
+        botonRojo.style.border = 'none';
+        botonRojo.style.padding = '10px 20px';
+        botonRojo.style.cursor = 'pointer';
+        sssss?.appendChild(botonRojo);
+    },
     
     camposDeLaVistaUno(pos){
         // Buscar y cambiar el campo donde esta el logo de odoo
