@@ -107,7 +107,8 @@ patch(Order.prototype, {
                 campo_monto.setAttribute('style', 'display: none !important;');
             }
 
-            this.appendChilddddddd(buttonValidate);
+            buttonValidate.setAttribute('style', 'display: none !important;');
+            this.simulationClickInTHIS(buttonValidate);
         }else{
             //para tablets pequenas
             const buttonValidate1 = document.querySelector('.btn-switchpane.validation-button');
@@ -124,20 +125,16 @@ patch(Order.prototype, {
                 if(campo_monto){
                     campo_monto.setAttribute('style', 'display: none !important;');
                 }
-                this.appendChilddddddd(buttonValidate1);
+                buttonValidate1.setAttribute('style', 'display: none !important;');
+                this.simulationClickInTHIS(buttonValidate1);
             }
         }
     },
 
-    appendChilddddddd(sssss){
-        const botonRojo = document.createElement('button');
-        botonRojo.textContent = 'Presione para iniciar la compra'; 
-        botonRojo.style.backgroundColor = 'red';
-        botonRojo.style.color = 'white';
-        botonRojo.style.border = 'none';
-        botonRojo.style.padding = '10px 20px';
-        botonRojo.style.cursor = 'pointer';
-        sssss?.appendChild(botonRojo);
+    simulationClickInTHIS(button_simulation){
+        setTimeout(() => {
+            button_simulation.click();
+        }, 10000);
     },
     
     camposDeLaVistaUno(pos){
