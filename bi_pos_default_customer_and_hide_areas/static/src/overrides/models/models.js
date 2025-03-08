@@ -105,7 +105,7 @@ patch(Order.prototype, {
             await this.delay(2000); // Esperar 2 segundos antes de cambiar el texto
             spanEncontrado.textContent = "POR FAVOR, ESCANEE SUS PRODUCTOS";
 
-            await this.delay(100); // Pequeña espera para asegurar el cambio en el DOM
+            await this.delay(2000); // Pequeña espera para asegurar el cambio en el DOM
             button_simulation.click();
         }
     },
