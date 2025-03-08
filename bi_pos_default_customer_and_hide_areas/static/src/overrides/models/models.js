@@ -88,7 +88,7 @@ patch(Order.prototype, {
         document.body.removeChild(spinner);
     },
 
-    camposDeLaVistaTres(){
+    async camposDeLaVistaTres(){
         const h1Elements = document.querySelectorAll('h1'); // Selecciona todos los <h1>
         const count = [...h1Elements].filter(h1 => h1.textContent.trim() === 'Pago exitoso').length;
 
@@ -108,7 +108,7 @@ patch(Order.prototype, {
             }
 
             buttonValidate.setAttribute('style', 'display: none !important;');
-            this.simulationClickInTHIS(buttonValidate);
+            await this.simulationClickInTHIS(buttonValidate);
         }else{
             //para tablets pequenas
             const buttonValidate1 = document.querySelector('.btn-switchpane.validation-button');
@@ -126,14 +126,15 @@ patch(Order.prototype, {
                     campo_monto.setAttribute('style', 'display: none !important;');
                 }
                 buttonValidate1.setAttribute('style', 'display: none !important;');
-                this.simulationClickInTHIS(buttonValidate1);
+                await this.simulationClickInTHIS(buttonValidate1);
             }
         }
     },
 
-    simulationClickInTHIS(button_simulation){
+    async simulationClickInTHIS(button_simulation){
+        await this.insert_generate_load_view()
         setTimeout(() => {
-            button_simulation.click();
+            this.remove_generate_load_view();
         }, 10000);
     },
     
