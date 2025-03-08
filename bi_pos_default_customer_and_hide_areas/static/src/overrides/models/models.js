@@ -107,7 +107,7 @@ patch(Order.prototype, {
                 campo_monto.setAttribute('style', 'display: none !important;');
             }
 
-            //this.center_button_next_order(buttonValidate);
+            this.center_button_next_order(buttonValidate);
         }else{
             //para tablets pequenas
             const buttonValidate1 = document.querySelector('.btn-switchpane.validation-button');
@@ -124,13 +124,16 @@ patch(Order.prototype, {
                 if(campo_monto){
                     campo_monto.setAttribute('style', 'display: none !important;');
                 }
-                //this.center_button_next_order(buttonValidate1);
+                this.center_button_next_order(buttonValidate1);
             }
         }
     },
 
     center_button_next_order(button_next_order){
-        button_next_order.setAttribute('style', 'position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; display: flex !important; justify-content: center !important; align-items: center !important; z-index: 99999 !important;');
+        button_next_order.setAttribute(
+            'style', 
+            'position: fixed !important; width: 100% !important; height: 100% !important; display: flex !important; justify-content: center !important; align-items: center !important; z-index: 99999 !important;'
+        );
         button_next_order.textContent = 'Presione para iniciar la compra'; 
     },
     
