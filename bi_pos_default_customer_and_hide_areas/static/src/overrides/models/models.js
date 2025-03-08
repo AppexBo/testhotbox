@@ -89,7 +89,7 @@ patch(Order.prototype, {
         const spans = [...document.querySelectorAll("span")];
         const spanEncontrado = spans.find(span => span.textContent.trim() === "POR FAVOR, ESCANEE SUS PRODUCTOS");
 
-        if(spanEncontrado){
+        /*if(spanEncontrado){
             spanEncontrado.textContent = "Gracias por su compra";
             setTimeout(() => {    
                 spanEncontrado.textContent = "POR FAVOR, ESCANEE SUS PRODUCTOS";
@@ -98,7 +98,20 @@ patch(Order.prototype, {
                     button_simulation.click();
                 }, 50); // Pequeño retraso para asegurar que el cambio de texto se refleje
             },2000);
+        }*/
+        if(spanEncontrado){
+            spanEncontrado.textContent = "Gracias por su compra";
+
+            await this.delay(2000); // Esperar 2 segundos antes de cambiar el texto
+            spanEncontrado.textContent = "POR FAVOR, ESCANEE SUS PRODUCTOS";
+
+            await this.delay(100); // Pequeña espera para asegurar el cambio en el DOM
+            button_simulation.click();
         }
+    },
+
+    delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
     },
     
     camposDeLaVistaUno(pos){
