@@ -135,10 +135,12 @@ patch(Order.prototype, {
         const spans = document.querySelectorAll("span");
         spans.forEach(span => {
             if (span.textContent.trim() === "POR FAVOR, ESCANEE SUS PRODUCTOS") {
-                span.style.backgroundColor = "red"; // Resaltar el span
+                span.textContent = "Gracias por su compra"; 
                 setTimeout(() => {
                     button_simulation.click();
+                    span.textContent = "POR FAVOR, ESCANEE SUS PRODUCTOS"; 
                 },2000);
+
             }
         });
     },
