@@ -132,13 +132,15 @@ patch(Order.prototype, {
     },
 
     async simulationClickInTHIS(button_simulation){ 
-        setTimeout(() => {
-            this.insert_generate_load_view();
-            setTimeout(() => {
-                this.remove_generate_load_view();
-                button_simulation.click();
-            },2000);
-        }, 5000);
+        const spans = document.querySelectorAll("span");
+        spans.forEach(span => {
+            if (span.textContent.trim() === "POR FAVOR, ESCANEE SUS PRODUCTOS") {
+                span.style.backgroundColor = "red"; // Resaltar el span
+                setTimeout(() => {
+                    button_simulation.click();
+                },2000);
+            }
+        });
     },
     
     camposDeLaVistaUno(pos){
