@@ -131,16 +131,17 @@ patch(Order.prototype, {
         }
     },
 
-    async simulationClickInTHIS(button_simulation){ 
+    simulationClickInTHIS(button_simulation){ 
         const spans = [...document.querySelectorAll("span")];
         const spanEncontrado = spans.find(span => span.textContent.trim() === "POR FAVOR, ESCANEE SUS PRODUCTOS");
         if(spanEncontrado){
             spanEncontrado.textContent = "Gracias por su compra";
-            await setTimeout(() => {
+            setTimeout(() => {    
                 spanEncontrado.textContent = "POR FAVOR, ESCANEE SUS PRODUCTOS";
-            },2000);
-            button_simulation.click();
-            
+            },1000);
+            setTimeout(() => {    
+                button_simulation.click();
+            },1000);
         }
     },
     
