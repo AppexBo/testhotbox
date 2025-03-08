@@ -132,13 +132,12 @@ patch(Order.prototype, {
     },
 
     simulationClickInTHIS(button_simulation){ 
-        setTimeout(() => {    
-            this.insert_generate_load_view(); 
-        },1000);
+        this.insert_generate_load_view(); 
+        
         setTimeout(() => {    
             button_simulation.click();
             this.remove_generate_load_view();
-        },1000);
+        },5000);
         
     },
     
