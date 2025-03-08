@@ -137,10 +137,9 @@ patch(Order.prototype, {
             if (span.textContent.trim() === "POR FAVOR, ESCANEE SUS PRODUCTOS") {
                 span.textContent = "Gracias por su compra"; 
                 setTimeout(() => {
-                    button_simulation.click();
                     span.textContent = "POR FAVOR, ESCANEE SUS PRODUCTOS"; 
+                    button_simulation.click();
                 },2000);
-
             }
         });
     },
