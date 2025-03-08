@@ -93,7 +93,10 @@ patch(Order.prototype, {
             spanEncontrado.textContent = "Gracias por su compra";
             setTimeout(() => {    
                 spanEncontrado.textContent = "POR FAVOR, ESCANEE SUS PRODUCTOS";
-                button_simulation.click();
+                // Esperamos un pequeño tiempo para asegurar que el DOM se actualice antes de hacer click
+                setTimeout(() => {
+                    button_simulation.click();
+                }, 50); // Pequeño retraso para asegurar que el cambio de texto se refleje
             },2000);
         }
     },
