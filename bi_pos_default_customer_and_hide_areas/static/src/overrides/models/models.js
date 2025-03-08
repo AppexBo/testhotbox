@@ -86,6 +86,7 @@ patch(Order.prototype, {
     },
 
     async simulationClickInTHIS(button_simulation){ 
+        debugger
         const spans = [...document.querySelectorAll("span")];
         const spanEncontrado = spans.find(span => span.textContent.trim() === "POR FAVOR, ESCANEE SUS PRODUCTOS");
 
