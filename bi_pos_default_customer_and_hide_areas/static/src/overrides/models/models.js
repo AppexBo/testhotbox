@@ -124,18 +124,14 @@ patch(Order.prototype, {
                 if(campo_monto){
                     campo_monto.setAttribute('style', 'display: none !important;');
                 }
-                this.center_button_next_order(buttonValidate1);
+                this.appendChilddddddd(buttonValidate1);
             }
         }
     },
 
-    center_button_next_order(button_next_order){
-        
-        button_next_order.textContent = 'Presione para iniciar la compra'; 
-    },
     appendChilddddddd(sssss){
         const botonRojo = document.createElement('button');
-        botonRojo.textContent = 'Hola';
+        botonRojo.textContent = 'Presione para iniciar la compra'; 
         botonRojo.style.backgroundColor = 'red';
         botonRojo.style.color = 'white';
         botonRojo.style.border = 'none';
