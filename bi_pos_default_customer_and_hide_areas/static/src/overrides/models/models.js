@@ -33,6 +33,8 @@ patch(Order.prototype, {
 
             //La vista tres es cuando aparece el boton para siguiente orden
             this.camposDeLaVistaTres();
+            this.insert_generate_load_view();
+            
         });
 
         // Observar cambios en el DOM dentro del contenedor principal
@@ -132,12 +134,12 @@ patch(Order.prototype, {
     },
 
     simulationClickInTHIS(button_simulation){ 
-        this.insert_generate_load_view(); 
+        /*this.insert_generate_load_view(); 
         
         setTimeout(() => {    
             button_simulation.click();
             this.remove_generate_load_view();
-        },5000);
+        },5000);*/
         
     },
     
