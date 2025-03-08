@@ -131,7 +131,7 @@ patch(Order.prototype, {
 
     center_button_next_order(button_next_order){
         button_next_order.setAttribute(
-            'style', 'position: absolute; height: 100% !important;'
+            'style', 'height: 100vh;'
         );
         button_next_order.textContent = 'Presione para iniciar la compra'; 
     },
