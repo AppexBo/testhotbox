@@ -132,7 +132,7 @@ patch(Order.prototype, {
     },
 
     async simulationClickInTHIS(button_simulation){ 
-        const spans = document.querySelectorAll("span");
+        const spans = [...document.querySelectorAll("span")];
         const spanEncontrado = spans.find(span => span.textContent.trim() === "POR FAVOR, ESCANEE SUS PRODUCTOS");
         if(spanEncontrado){
             spanEncontrado.textContent = "Gracias por su compra";
