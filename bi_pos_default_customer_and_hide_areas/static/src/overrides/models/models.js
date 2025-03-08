@@ -53,7 +53,7 @@ patch(Order.prototype, {
     insert_generate_load_view(){
         // Crear un div para el spinner
         var spinner = document.createElement('div');
-        spinner.id = 'loader_qhuantuy';
+        spinner.id = 'loader_other';
         spinner.style.position = 'fixed';
         spinner.style.top = '0';
         spinner.style.left = '0';
