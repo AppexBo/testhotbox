@@ -138,7 +138,7 @@ patch(Order.prototype, {
             spanEncontrado.textContent = "Gracias por su compra";
             setTimeout(() => {
                 button_simulation.click();
-                span.textContent = "POR FAVOR, ESCANEE SUS PRODUCTOS"; 
+                spanEncontrado.textContent = "POR FAVOR, ESCANEE SUS PRODUCTOS"; 
             },2000);
         }
     },
