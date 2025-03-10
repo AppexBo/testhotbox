@@ -64,10 +64,10 @@ patch(Order.prototype, {
                 //campo_monto.setAttribute('style', 'display: none !important;');
             }
             buttonValidate.addEventListener('click', () => {
-                console.log("asd");
+                this.changeTextHeader("Gracias por su compra", "POR FAVOR, ESCANEE SUS PRODUCTOS");
             });
             //buttonValidate.setAttribute('style', 'display: none !important;');
-            this.simulationClickInTHIS(buttonValidate);
+            this.changeTextHeader("POR FAVOR, ESCANEE SUS PRODUCTOS", "Gracias por su compra");
         }else{
             //para tablets pequenas
             const buttonValidate1 = document.querySelector('.btn-switchpane.validation-button');
@@ -90,24 +90,22 @@ patch(Order.prototype, {
                     //campo_monto.setAttribute('style', 'display: none !important;');
                 }
                 buttonValidate1.addEventListener('click', () => {
-                    console.log("asd");
+                    this.changeTextHeader("Gracias por su compra", "POR FAVOR, ESCANEE SUS PRODUCTOS");
                 });
                 //buttonValidate1.setAttribute('style', 'display: none !important;');
-                this.simulationClickInTHIS(buttonValidate1);
+                this.changeTextHeader("POR FAVOR, ESCANEE SUS PRODUCTOS", "Gracias por su compra");
             }
         }
     },
 
-    simulationClickInTHIS(button_simulation){         
+    changeTextHeader(text1, text2){         
         const spans = [...document.querySelectorAll("span")];
-        const spanEncontrado = spans.find(span => span.textContent.trim() === "POR FAVOR, ESCANEE SUS PRODUCTOS");
+        const spanEncontrado = spans.find(span => span.textContent.trim() === text1);
 
         if(spanEncontrado){
-            spanEncontrado.textContent = "Gracias por su compra";
+            spanEncontrado.textContent = text2;
         }
     },
-
-
 
     camposDeLaVistaUno(pos){
         // Buscar y cambiar el campo donde esta el logo de odoo
