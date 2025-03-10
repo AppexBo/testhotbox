@@ -43,11 +43,12 @@ patch(Order.prototype, {
     camposDeLaVistaTres(){
         const h1Elements = document.querySelectorAll('h1'); // Selecciona todos los <h1>
         const count = [...h1Elements].filter(h1 => h1.textContent.trim() === 'Pago exitoso').length;
-        if(this.cosas_visuales == false){
+        debugger
+        if(this.cosas_visuales === false){
             this.cosas_visuales = true;
         }
         const buttonValidate = document.querySelector('.button.next.validation');
-        if (buttonValidate && count === 1 && this.cosas_visuales) {
+        if (buttonValidate && count === 1 && this.cosas_visuales === true) {
             const campo_receipt = document.querySelector('.pos-receipt-container');
             if(campo_receipt){
                 campo_receipt.setAttribute('style', 'display: none !important;');
@@ -74,7 +75,7 @@ patch(Order.prototype, {
         }else{
             //para tablets pequenas
             const buttonValidate1 = document.querySelector('.btn-switchpane.validation-button');
-            if(buttonValidate1 && count === 1 && this.cosas_visuales){
+            if(buttonValidate1 && count === 1 && this.cosas_visuales === true){
                 const campo_receipt = document.querySelector('.pos-receipt-container');
                 if(campo_receipt){
                     campo_receipt.setAttribute('style', 'display: none !important;');
