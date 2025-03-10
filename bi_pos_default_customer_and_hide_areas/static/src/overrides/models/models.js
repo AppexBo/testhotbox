@@ -44,10 +44,12 @@ patch(Order.prototype, {
         const h1Elements = document.querySelectorAll('h1'); // Selecciona todos los <h1>
         const count = [...h1Elements].filter(h1 => h1.textContent.trim() === 'Pago exitoso').length;
         if(count === 1 && this.cosas_visuales === false){
+            debugger
             this.cosas_visuales = true;
         }
         const buttonValidate = document.querySelector('.button.next.validation');
         if (buttonValidate && count === 1 && this.cosas_visuales === true) {
+            debugger
             const campo_receipt = document.querySelector('.pos-receipt-container');
             if(campo_receipt){
                 campo_receipt.setAttribute('style', 'display: none !important;');
