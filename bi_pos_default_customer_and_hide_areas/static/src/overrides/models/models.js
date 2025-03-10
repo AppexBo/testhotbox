@@ -99,6 +99,9 @@ patch(Order.prototype, {
         const spanEncontrado = spans.find(span => span.textContent.trim() === "POR FAVOR, ESCANEE SUS PRODUCTOS");
 
         
+        if(spanEncontrado){
+            spanEncontrado.textContent = "Gracias por su compra";
+        }
     },
 
     
