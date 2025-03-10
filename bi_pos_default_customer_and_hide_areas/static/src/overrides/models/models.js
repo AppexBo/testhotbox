@@ -64,6 +64,7 @@ patch(Order.prototype, {
                 //campo_monto.setAttribute('style', 'display: none !important;');
             }
             buttonValidate.addEventListener('click', () => {
+                debugger
                 this.changeTextHeader("Gracias por su compra", "POR FAVOR, ESCANEE SUS PRODUCTOS");
             });
             //buttonValidate.setAttribute('style', 'display: none !important;');
@@ -90,6 +91,7 @@ patch(Order.prototype, {
                     //campo_monto.setAttribute('style', 'display: none !important;');
                 }
                 buttonValidate1.addEventListener('click', () => {
+                    debugger
                     this.changeTextHeader("Gracias por su compra", "POR FAVOR, ESCANEE SUS PRODUCTOS");
                 });
                 //buttonValidate1.setAttribute('style', 'display: none !important;');
