@@ -62,7 +62,7 @@ patch(Order.prototype, {
             }
 
             buttonValidate.setAttribute('style', 'display: none !important;');
-            await this.simulationClickInTHIS(buttonValidate);
+            //await this.simulationClickInTHIS(buttonValidate);
         }else{
             //para tablets pequenas
             const buttonValidate1 = document.querySelector('.btn-switchpane.validation-button');
@@ -80,7 +80,7 @@ patch(Order.prototype, {
                     campo_monto.setAttribute('style', 'display: none !important;');
                 }
                 buttonValidate1.setAttribute('style', 'display: none !important;');
-                await this.simulationClickInTHIS(buttonValidate1);
+                //await this.simulationClickInTHIS(buttonValidate1);
             }
         }
     },
