@@ -63,7 +63,9 @@ patch(Order.prototype, {
                 }
                 //campo_monto.setAttribute('style', 'display: none !important;');
             }
-
+            buttonValidate.addEventListener('click', () => {
+                console.log("asd");
+            });
             //buttonValidate.setAttribute('style', 'display: none !important;');
             this.simulationClickInTHIS(buttonValidate);
         }else{
@@ -87,6 +89,9 @@ patch(Order.prototype, {
                     }
                     //campo_monto.setAttribute('style', 'display: none !important;');
                 }
+                buttonValidate1.addEventListener('click', () => {
+                    console.log("asd");
+                });
                 //buttonValidate1.setAttribute('style', 'display: none !important;');
                 this.simulationClickInTHIS(buttonValidate1);
             }
