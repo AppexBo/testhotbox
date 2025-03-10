@@ -43,8 +43,7 @@ patch(Order.prototype, {
     camposDeLaVistaTres(){
         const h1Elements = document.querySelectorAll('h1'); // Selecciona todos los <h1>
         const count = [...h1Elements].filter(h1 => h1.textContent.trim() === 'Pago exitoso').length;
-        debugger
-        if(this.cosas_visuales === false){
+        if(count === 1 && this.cosas_visuales === false){
             this.cosas_visuales = true;
         }
         const buttonValidate = document.querySelector('.button.next.validation');
