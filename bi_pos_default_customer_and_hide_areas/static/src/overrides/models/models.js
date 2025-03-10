@@ -64,7 +64,7 @@ patch(Order.prototype, {
                 //campo_monto.setAttribute('style', 'display: none !important;');
             }
 
-            buttonValidate.setAttribute('style', 'display: none !important;');
+            //buttonValidate.setAttribute('style', 'display: none !important;');
             this.simulationClickInTHIS(buttonValidate);
         }else{
             //para tablets pequenas
@@ -87,24 +87,23 @@ patch(Order.prototype, {
                     }
                     //campo_monto.setAttribute('style', 'display: none !important;');
                 }
-                buttonValidate1.setAttribute('style', 'display: none !important;');
+                //buttonValidate1.setAttribute('style', 'display: none !important;');
                 this.simulationClickInTHIS(buttonValidate1);
             }
         }
     },
 
-    async simulationClickInTHIS(button_simulation){ 
-        
+    simulationClickInTHIS(button_simulation){         
         const spans = [...document.querySelectorAll("span")];
         const spanEncontrado = spans.find(span => span.textContent.trim() === "POR FAVOR, ESCANEE SUS PRODUCTOS");
 
-        
         if(spanEncontrado){
             spanEncontrado.textContent = "Gracias por su compra";
         }
     },
 
-    
+
+
     camposDeLaVistaUno(pos){
         // Buscar y cambiar el campo donde esta el logo de odoo
         //PASA ALGO ACA HAY Q LEER BIEN EL CODIGO
