@@ -21,8 +21,6 @@ patch(Order.prototype, {
         this.changePos(this.pos);
     },
 
-    
-    
     changePos(pos){
         // Crear un MutationObserver para observar cambios en el DOM
         const observer = new MutationObserver(() => {            
@@ -58,11 +56,16 @@ patch(Order.prototype, {
             }
             const campo_monto = document.querySelector('.top-content.d-flex');
             if(campo_monto){
-                campo_monto.setAttribute('style', 'display: none !important;');
+                campo_monto.classList.remove('border-bottom');
+                const titulo = campo_monto.querySelector('h1'); // Busca el h1 dentro del elemento
+                if (titulo) {
+                    titulo.textContent = "Gracias por su compra"; // Cambia el texto del h1
+                }
+                //campo_monto.setAttribute('style', 'display: none !important;');
             }
 
             buttonValidate.setAttribute('style', 'display: none !important;');
-            //await this.simulationClickInTHIS(buttonValidate);
+            this.simulationClickInTHIS(buttonValidate);
         }else{
             //para tablets pequenas
             const buttonValidate1 = document.querySelector('.btn-switchpane.validation-button');
@@ -77,43 +80,27 @@ patch(Order.prototype, {
                 }
                 const campo_monto = document.querySelector('.top-content.d-flex');
                 if(campo_monto){
-                    campo_monto.setAttribute('style', 'display: none !important;');
+                    campo_monto.classList.remove('border-bottom');
+                    const titulo = campo_monto.querySelector('h1'); // Busca el h1 dentro del elemento
+                    if (titulo) {
+                        titulo.textContent = "Gracias por su compra"; // Cambia el texto del h1
+                    }
+                    //campo_monto.setAttribute('style', 'display: none !important;');
                 }
                 buttonValidate1.setAttribute('style', 'display: none !important;');
-                //await this.simulationClickInTHIS(buttonValidate1);
+                this.simulationClickInTHIS(buttonValidate1);
             }
         }
     },
 
     async simulationClickInTHIS(button_simulation){ 
-        debugger
+        
         const spans = [...document.querySelectorAll("span")];
         const spanEncontrado = spans.find(span => span.textContent.trim() === "POR FAVOR, ESCANEE SUS PRODUCTOS");
 
-        /*if(spanEncontrado){
-            spanEncontrado.textContent = "Gracias por su compra";
-            setTimeout(() => {    
-                spanEncontrado.textContent = "POR FAVOR, ESCANEE SUS PRODUCTOS";
-                // Esperamos un pequeño tiempo para asegurar que el DOM se actualice antes de hacer click
-                setTimeout(() => {
-                    button_simulation.click();
-                }, 50); // Pequeño retraso para asegurar que el cambio de texto se refleje
-            },2000);
-        }*/
-        if(spanEncontrado){
-            spanEncontrado.textContent = "Gracias por su compra";
-
-            await this.delay(2000); // Esperar 2 segundos antes de cambiar el texto
-            spanEncontrado.textContent = "POR FAVOR, ESCANEE SUS PRODUCTOS";
-
-            await this.delay(2000); // Pequeña espera para asegurar el cambio en el DOM
-            button_simulation.click();
-        }
+        
     },
 
-    delay(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    },
     
     camposDeLaVistaUno(pos){
         // Buscar y cambiar el campo donde esta el logo de odoo
