@@ -84,10 +84,18 @@ patch(Order.prototype, {
                 if(campo_pago_exitoso){
                     campo_pago_exitoso.setAttribute('style', 'display: none !important;');
                 }
-                const campo_monto = document.querySelector('.top-content.d-flex');
-                if(campo_monto){
-                    campo_monto.classList.remove('border-bottom');
-                    const titulo = campo_monto.querySelector('h1'); // Busca el h1 dentro del elemento
+                
+                if(campo_pago_exitoso){
+                    campo_pago_exitoso.childNodes.forEach(element => {
+                        if (element.nodeType === 1) { // Verifica que sea un elemento HTML
+                            if (element.tagName.toLowerCase() === 'h1') {
+                                titulo = element; // Captura el primer h1 encontrado
+                            } else {
+                                element.setAttribute('style', 'display: none !important;');
+                            }
+                        }
+                    });
+
                     if (titulo && titulo.textContent.trim() != 'Gracias por su compra') {
                         titulo.textContent = "Gracias por su compra"; // Cambia el texto del h1
                         this.changeTextHeader("POR FAVOR, ESCANEE SUS PRODUCTOS", "Gracias por su compra");
