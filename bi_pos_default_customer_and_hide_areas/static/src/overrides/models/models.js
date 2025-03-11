@@ -82,7 +82,7 @@ patch(Order.prototype, {
                 }
                 const campo_pago_exitoso = document.querySelector('.d-flex.flex-column.m-4');
                 if(campo_pago_exitoso){
-                    campo_pago_exitoso.setAttribute('style', 'display: none !important;');
+                    campo_pago_exitoso.setAttribute('style', 'text-align: center !important;');
                 }
                 
                 if(campo_pago_exitoso){
