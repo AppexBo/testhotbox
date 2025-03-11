@@ -86,6 +86,8 @@ patch(Order.prototype, {
                 }
                 
                 if(campo_pago_exitoso){
+                    const titulo = null;
+                    
                     campo_pago_exitoso.childNodes.forEach(element => {
                         if (element.nodeType === 1) { // Verifica que sea un elemento HTML
                             if (element.tagName.toLowerCase() === 'h1') {
