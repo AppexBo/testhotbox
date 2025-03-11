@@ -61,7 +61,7 @@ patch(Order.prototype, {
             if(campo_monto){
                 campo_monto.classList.remove('border-bottom');
                 const titulo = campo_monto.querySelector('h1'); // Busca el h1 dentro del elemento
-                if (titulo && h1.textContent.trim() != 'Gracias por su compra') {
+                if (titulo && titulo.textContent.trim() != 'Gracias por su compra') {
                     titulo.textContent = "Gracias por su compra"; // Cambia el texto del h1
                     this.changeTextHeader("POR FAVOR, ESCANEE SUS PRODUCTOS", "Gracias por su compra");
                 }
@@ -88,7 +88,7 @@ patch(Order.prototype, {
                 if(campo_monto){
                     campo_monto.classList.remove('border-bottom');
                     const titulo = campo_monto.querySelector('h1'); // Busca el h1 dentro del elemento
-                    if (titulo && h1.textContent.trim() != 'Gracias por su compra') {
+                    if (titulo && titulo.textContent.trim() != 'Gracias por su compra') {
                         titulo.textContent = "Gracias por su compra"; // Cambia el texto del h1
                         this.changeTextHeader("POR FAVOR, ESCANEE SUS PRODUCTOS", "Gracias por su compra");
                     }
